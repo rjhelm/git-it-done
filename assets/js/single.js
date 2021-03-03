@@ -1,7 +1,6 @@
 var repoNameEl = document.querySelector("#repo-name");
 var issueContainerEl = document.querySelector("#issues-container");
 var limitWarningEl = document.querySelector("#limit-warning");
-var queryString = document.location.search;
 
 var getRepoName = function () {
   // grab repo name from url query string
@@ -23,7 +22,6 @@ var getRepoIssues = function (repo) {
   // format the github api url
   var apiUrl = "https://api.github.com/repos/" + repo + "/issues?direction=asc";
 
-  // make a get request to url
   // make a get request to url
   fetch(apiUrl).then(function (response) {
     // request was successful
@@ -96,5 +94,4 @@ var displayWarning = function (repo) {
   limitWarningEl.appendChild(linkEl);
 };
 
-//getRepoIssues("facebook/react");
 getRepoName();
